@@ -9,17 +9,17 @@ import Header from './Header'
 const Home = () => {
     const {showModal, setShowModal} = useContext(TaskContext)
   const location = useLocation();
-  let state = location.state;
-  state = state.path;
-  const [actualPath, setActualPath] = useState("")
+  let state;
+  state = "asdsad";
+  const [actualPath, setActualPath] = useState("");
   useEffect(() => {
-    setActualPath(state);
+    setActualPath(location.pathname);
    
     return () => {
       
     }
   }, [])
-  console.log(location.state.path);
+  console.log(location);
   return (
     <>
         
