@@ -13,7 +13,9 @@ const Home = () => {
   state = "asdsad";
   const [actualPath, setActualPath] = useState("");
   useEffect(() => {
-    setActualPath(location.pathname);
+    let path = location.pathname;
+    path = path.replaceAll("/", "");
+    setActualPath(path);
    
     return () => {
       
@@ -29,11 +31,11 @@ const Home = () => {
                 {showModal && <Add/>}
                 <div className='header-dashboard'>
                     <div className='header-data'>
-                        Dashboard {state == "/" ? "":`/ ${state}`}
+                        Dashboard {location.pathname == "/" ? "":`/ ${actualPath}`}
                     </div>
                     <div className='header-butons'>
-                        {state == "clientes" ?  <AddButton><i class="fa-solid fa-plus"></i>Registar Cliente</AddButton> :""}
-                        {state == "reparaciones" ?  <AddButton onClick={(e) => setShowModal(prev => !prev)}><i class="fa-solid fa-plus"></i>Registar Reparacion</AddButton> :""}
+                        {actualPath == "clientes" ?  <AddButton><i class="fa-solid fa-plus"></i>Registar Cliente</AddButton> :""}
+                        {actualPath == "reparaciones" ?  <AddButton onClick={(e) => setShowModal(prev => !prev)}><i class="fa-solid fa-plus"></i>Registar Reparacion</AddButton> :""}
                     </div>
                     
                 </div>
