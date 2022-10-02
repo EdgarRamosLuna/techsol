@@ -147,6 +147,8 @@ export const HeaderS = styled.div`
             display: flex;
             align-items: center;
             gap: 10px;
+            font-size: 16px;
+            text-transform: uppercase;
         }
     }
     .logo{
