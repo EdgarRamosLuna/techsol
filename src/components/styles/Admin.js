@@ -231,7 +231,24 @@ cursor: pointer;
   text-align: left;
 }
 .close-modal{
-
+   
+}
+.add-data {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    h1 {
+        position: relative;
+        &:before{
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            height: 3px;
+            width: 50px;
+            background: #125c78;
+            display: flex;
+        }
+    }
 }
 .close-modal-container {
   position: absolute;
@@ -255,6 +272,19 @@ cursor: pointer;
     margin-top: 6px;
     box-sizing: border-box;
     padding: 10px;
+    outline: none;
+    transition: all 0.5s;
+    border:1px solid #fff;
+    border-bottom: 1px solid #125c78;
+    border-right:0;
+    border-top:0;
+   // border-t: 1px solid #fff;
+    &:focus{
+        transition: all 0.5s;
+        border: 1px solid #125c78;
+        border-right:0;
+        border-top:0;
+    }
     }
     &:last-child {
     width: 100%;
