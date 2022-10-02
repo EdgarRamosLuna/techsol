@@ -41,7 +41,6 @@ const Table = (props) => {
   return (
     <TableS>
          <DataTable
-			title="Reparaciones"
 			columns={columns}
 			data={filteredItems}
 			pagination

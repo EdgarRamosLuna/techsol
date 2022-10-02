@@ -27,7 +27,13 @@ align-items: center;
     align-items: center;
 }
 .header-data {
-        width: 20%;
+    width: 20%;
+    text-transform:capitalize ;
+    display: flex;
+    gap:5px;
+    span {
+        color: #00aeef;
+    }
 }
 .header-butons {
     width: 80%;
@@ -77,13 +83,13 @@ export const HeaderS = styled.div`
                     content: '';
                     transition: all 0.5s;
                     position: absolute;
-                    width: 0%;
-                    height: 1px;
+                    width: 5px;
+                    height: 0%;
                     display: flex;
                     background: white;
-                    bottom: 10px;
+                    top: 0;
                     left: 0%;
-                    transform: translateX(-50%);
+                   /* transform: translateX(-50%);*/
                     
                 }
             &:hover{
@@ -93,13 +99,19 @@ export const HeaderS = styled.div`
                     content: '';
                     transition: all 0.5s;
                     position: absolute;
-                    width: 80%;
+                    width: 5px;
+                    height: 100%;
+                    display: flex;
+                    background: #fff;
+                    bottom: 0;
+                    left: 0;
+                    /*width: 80%;
                     height: 1px;
                     display: flex;
                     background: white;
                     bottom: 10px;
                     left: 50%;
-                    transform: translateX(-50%);
+                    transform: translateX(-50%);*/
                     
                 }
             }
@@ -108,6 +120,25 @@ export const HeaderS = styled.div`
         .active{
             transition: all 0.5s;
             background: #125c78;
+            &:before{
+                    content: '';
+                    transition: all 0.5s;
+                    position: absolute;
+                    width: 5px;
+                    height: 100%;
+                    display: flex;
+                    background: #fff;
+                    bottom: 0;
+                    left: 0;
+                    /*width: 80%;
+                    height: 1px;
+                    display: flex;
+                    background: white;
+                    bottom: 10px;
+                    left: 50%;
+                    transform: translateX(-50%);*/
+                    
+                }
         }
         a {
             color: #fff;

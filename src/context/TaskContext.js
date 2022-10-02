@@ -10,7 +10,68 @@ import {
 import { createContext } from "react";
 import DataTable from 'react-data-table-component';
 
-
+const data = [
+    {
+        id: 1,
+        customer: 'Cliente 1',
+        description:"test",
+        delivery_date: '1988',
+        entry_date:"1998",
+        price:"200.00",
+        status:1,
+        device_model: "Samsumg Galaxy J7 Prime"
+    },
+    {
+        id: 2,
+        customer: 'Cliente 2',
+        description:"test",
+        delivery_date: '1988',
+        entry_date:"1998",
+        price:"200.00",
+        status:1,
+        device_model: "Samsumg Galaxy J7 Prime"
+    },
+    {
+        id: 3,
+        customer: 'Cliente 3',
+        description:"test",
+        delivery_date: '1988',
+        entry_date:"1998",
+        price:"200.00",
+        status:1,
+        device_model: "Samsumg Galaxy J7 Prime"
+    },
+    {
+        id: 4,
+        customer: 'Cliente 4',
+        description:"test",
+        delivery_date: '1988',
+        entry_date:"1998",
+        price:"200.00",
+        status:1,
+        device_model: "Samsumg Galaxy J7 Prime"
+    },
+    {
+        id: 5,
+        customer: 'Cliente 5',
+        description:"test",
+        delivery_date: '1988',
+        entry_date:"1998",
+        price:"200.00",
+        status:1,
+        device_model: "Samsumg Galaxy J7 Prime"
+    },
+    {
+        id: 6,
+        customer: 'Cliente 6',
+        description:"test",
+        delivery_date: '1988',
+        entry_date:"1998",
+        price:"200.00",
+        status:1,
+        device_model: "Samsumg Galaxy J7 Prime"
+    },
+]
 export const TaskContext = createContext();
 export const TaskContextProvider = (props) => {
     const [showModal, setShowModal] = useState(false);
@@ -232,11 +293,30 @@ export const TaskContextProvider = (props) => {
     localStorage.setItem('cart', JSON.stringify(cartItemD));
   }
   const [showAlertStock, setShowAlertStock] = useState(false); */
+  const [cliente, setCliente] = useState("");
+  let num = 8440000000;
+  const [telefono, setTelefono] = useState();
+  const [modelo, setModelo] = useState("");
+  const [descripcion, setDescripcion] = useState("");
+  const [price, setPrice] = useState();
+  const [dataR, setDataR] = useState(data);
   return (
     <TaskContext.Provider value={{
         DataTable,
         showModal,
         setShowModal,
+        cliente,
+        telefono,
+        modelo,
+        descripcion,
+        price,
+        setCliente,
+        setTelefono,
+        setModelo,
+        setDescripcion,
+        setPrice,
+        dataR,
+        setDataR,
         /*addCartItem,
         cartItemN,
         tokn,

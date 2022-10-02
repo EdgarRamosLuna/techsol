@@ -35,73 +35,16 @@ const columns = [
     },
 ];
 
-const data = [
-    {
-        id: 1,
-        customer: 'Cliente 1',
-        description:"test",
-        delivery_date: '1988',
-        entry_date:"1998",
-        price:"200.00",
-        status:1,
-        device_model: "Samsumg Galaxy J7 Prime"
-    },
-    {
-        id: 2,
-        customer: 'Cliente 2',
-        description:"test",
-        delivery_date: '1988',
-        entry_date:"1998",
-        price:"200.00",
-        status:1,
-        device_model: "Samsumg Galaxy J7 Prime"
-    },
-    {
-        id: 3,
-        customer: 'Cliente 3',
-        description:"test",
-        delivery_date: '1988',
-        entry_date:"1998",
-        price:"200.00",
-        status:1,
-        device_model: "Samsumg Galaxy J7 Prime"
-    },
-    {
-        id: 4,
-        customer: 'Cliente 4',
-        description:"test",
-        delivery_date: '1988',
-        entry_date:"1998",
-        price:"200.00",
-        status:1,
-        device_model: "Samsumg Galaxy J7 Prime"
-    },
-    {
-        id: 5,
-        customer: 'Cliente 5',
-        description:"test",
-        delivery_date: '1988',
-        entry_date:"1998",
-        price:"200.00",
-        status:1,
-        device_model: "Samsumg Galaxy J7 Prime"
-    },
-    {
-        id: 6,
-        customer: 'Cliente 6',
-        description:"test",
-        delivery_date: '1988',
-        entry_date:"1998",
-        price:"200.00",
-        status:1,
-        device_model: "Samsumg Galaxy J7 Prime"
-    },
-]
+
 
 const Repairs = () => {
   
 
-  const [dataR, setDataR] = useState(data);
+  
+  const {
+    
+    dataR,
+    setDataR} = useContext(TaskContext)
   useEffect(() => {
     axios.post('http://localhost/ci3/repairs',).then(res =>{
      
@@ -122,7 +65,7 @@ const Repairs = () => {
   return (
     <RepairsS>
 
-    <Table data={data} columns={columns} filter={"name"} />
+    <Table data={dataR} columns={columns} filter={"name"} />
            
     </RepairsS>
   )

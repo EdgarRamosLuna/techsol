@@ -31,7 +31,7 @@ const Home = () => {
                 {showModal && <Add/>}
                 <div className='header-dashboard'>
                     <div className='header-data'>
-                        Dashboard {location.pathname == "/" ? "":`/ ${actualPath}`}
+                        Dashboard {location.pathname == "/" ? "":<div>/ <span>{actualPath}</span></div>}
                     </div>
                     <div className='header-butons'>
                         {actualPath == "clientes" ?  <AddButton><i class="fa-solid fa-plus"></i>Registar Cliente</AddButton> :""}
