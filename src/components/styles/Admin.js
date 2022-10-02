@@ -19,7 +19,7 @@ align-items: center;
 .header-dashboard {
     width: 100%;
     display: flex;
-    height: 100px;
+    height: 112px;
     -webkit-box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.5);
     box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.5);
     box-sizing: border-box;
