@@ -7,7 +7,7 @@ export const AdminS = styled.div`
 
 `;
 export const DashboardS = styled.div`
-width: calc(100% - 250px);
+width: calc(100% - 66px);
 margin-left: auto;
 height: 100vh;
 box-sizing: border-box;
@@ -55,12 +55,41 @@ align-items: center;
 `;
 
 export const HeaderS = styled.div`
-    width: 250px;
+   
     position: fixed;
     height: 100vh;
     color: #9d9d9d;
     background: #e8e8e8;
     z-index: 999;
+    width: 66px;
+    transition:all 0.5s;
+    &:hover{
+        
+        width: 250px;
+        transition:all 0.5s;
+        img {
+            width: 50px;
+           // width: unset !important;
+           // height: 100%;
+        }
+        .menu-txt {
+
+                display: flex;
+                transition: all 0.5s;
+                opacity:1 ;
+                z-index:1;
+            
+        }
+        
+        
+    }
+    .menu-txt {
+        display: none;
+        opacity:0 ;
+        transition: all 0.5s;
+        z-index:-1;
+      
+    }
     .menu {
         
         height: 100%;
@@ -76,9 +105,13 @@ export const HeaderS = styled.div`
         li {
             display: flex;
             text-align: left;
-            padding: 15px 25px;
+            //padding: 15px 25px;
             transition: all 0.5s;
             position: relative;
+            height: 50px;
+            align-items: center;
+            justify-content: center;
+            
             &:before{
                     content: '';
                     transition: all 0.5s;
@@ -114,12 +147,18 @@ export const HeaderS = styled.div`
                     transform: translateX(-50%);*/
                     
                 }
+                
+                   
+                
             }
             
         }   
         .active{
             transition: all 0.5s;
             background: #125c78;
+            i{
+                background: #125c78;
+            }
             &:before{
                     content: '';
                     transition: all 0.5s;
@@ -149,6 +188,19 @@ export const HeaderS = styled.div`
             gap: 10px;
             font-size: 16px;
             text-transform: uppercase;
+            justify-content: start;
+            position: relative;
+            margin-left: 60px;
+            i{
+                position: fixed;
+                left: 25px;
+     
+                z-index: 9;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
         }
     }
     .logo{
@@ -165,7 +217,7 @@ export const HeaderS = styled.div`
         justify-content: center;
         align-items: center;
         img {
-        height: 100%;
+        width: 50px;
         }
     }
     

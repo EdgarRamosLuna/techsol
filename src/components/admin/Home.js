@@ -16,12 +16,12 @@ const Home = () => {
     let path = location.pathname;
     path = path.replaceAll("/", "");
     setActualPath(path);
-   
+    console.log(path);
     return () => {
       
     }
   }, [])
-  console.log(location);
+
   return (
     <>
         
@@ -31,11 +31,11 @@ const Home = () => {
                 {showModal && <Add/>}
                 <div className='header-dashboard'>
                     <div className='header-data'>
-                        Dashboard {location.pathname == "/" ? "":<div>/ <span>{actualPath}</span></div>}
+                        Dashboard {location.pathname == "/" ? "":<div> <span>{location.pathname}</span></div>}
                     </div>
                     <div className='header-butons'>
                         {actualPath == "clientes" ?  <AddButton><i class="fa-solid fa-plus"></i>Registar Cliente</AddButton> :""}
-                        {actualPath == "reparaciones" ?  <AddButton onClick={(e) => setShowModal(prev => !prev)}><i class="fa-solid fa-plus"></i>Registar Reparacion</AddButton> :""}
+                        {location.pathname == "/reparaciones" ?  <AddButton onClick={(e) => setShowModal(prev => !prev)}><i class="fa-solid fa-plus"></i>Registar Reparacion</AddButton> :""}
                     </div>
                     
                 </div>

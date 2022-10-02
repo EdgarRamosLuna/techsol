@@ -22,10 +22,10 @@ const Header = () => {
       <div className="menu">
         <ul>
           <li className={`menu-HeaderS ${path == "/" ? "active":""}`} onClick={(e) =>setShowModal(false)}>
-            <Link to={`/`} state={{path: "/"}}><i class="fa-solid fa-house"></i>Dashboard </Link>
+            <Link to={`/`} state={{path: "/"}}><i class="fa-solid fa-house"></i> <div className="menu-txt">Dashboard</div> </Link>
           </li>
           <li className={`menu-HeaderS ${path == "/reparaciones" ? "active":""}`} onClick={()=> setShowModal(false)}>
-            <Link to={`/reparaciones`} state={{path: "reparaciones"}}><i class="fa-solid fa-screwdriver-wrench"></i>Reparaciones</Link>
+            <Link to={`/reparaciones`} state={{path: "reparaciones"}}><i class="fa-solid fa-screwdriver-wrench"></i><div className="menu-txt">Reparaciones</div></Link>
           </li>
         </ul>
       </div>
