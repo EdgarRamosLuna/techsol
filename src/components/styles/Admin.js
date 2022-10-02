@@ -19,11 +19,11 @@ align-items: center;
 .header-dashboard {
     width: 100%;
     display: flex;
-    height: 112px;
+    height: 100px;
     -webkit-box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.5);
     box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.5);
     box-sizing: border-box;
-    padding: 15px;
+    padding: 0 15px;
     align-items: center;
 }
 .header-data {
@@ -120,7 +120,7 @@ export const HeaderS = styled.div`
     }
     .logo{
         width: 100%;
-        height: 100px;
+        height: 90px;
         display: flex;
         justify-content: center;
         background: #d2d8df;
