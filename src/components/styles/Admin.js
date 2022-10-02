@@ -75,19 +75,21 @@ export const HeaderS = styled.div`
         .menu-txt {
 
                 display: flex;
-                transition: all 0.5s;
+                transition: all 0.3s;
                 opacity:1 ;
                 z-index:1;
+                
             
         }
         
         
     }
     .menu-txt {
-        display: none;
+
         opacity:0 ;
         transition: all 0.5s;
         z-index:-1;
+        margin-left:5px;
       
     }
     .menu {
@@ -169,6 +171,7 @@ export const HeaderS = styled.div`
                     background: #fff;
                     bottom: 0;
                     left: 0;
+                    z-index:999;
                     /*width: 80%;
                     height: 1px;
                     display: flex;
@@ -200,6 +203,8 @@ export const HeaderS = styled.div`
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                width: 66px;
+                left: 0;
             }
         }
     }

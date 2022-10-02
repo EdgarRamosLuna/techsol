@@ -295,10 +295,10 @@ export const TaskContextProvider = (props) => {
   const [showAlertStock, setShowAlertStock] = useState(false); */
   const [cliente, setCliente] = useState("");
   let num = 8440000000;
-  const [telefono, setTelefono] = useState();
+  const [telefono, setTelefono] = useState("");
   const [modelo, setModelo] = useState("");
   const [descripcion, setDescripcion] = useState("");
-  const [price, setPrice] = useState();
+  const [price, setPrice] = useState("");
   const [dataR, setDataR] = useState(data);
   return (
     <TaskContext.Provider value={{

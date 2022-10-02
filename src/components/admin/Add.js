@@ -61,11 +61,19 @@ const Add = () => {
      
       
   }
+  const closeModal = () => {
+    setShowModal(false);
+    setCliente("");
+    setTelefono("");
+    setModelo("");
+    setDescripcion("");
+    setPrice("");
+  };
   return (
-    <AddS onClick={()=> setShowModal(false)}>
+    <AddS onClick={closeModal}>
       <div className="add-data-container" onClick={noClick}>
         <div className="close-modal">
-          <div className="close-modal-container" onClick={()=> setShowModal(false)}>
+          <div className="close-modal-container" onClick={closeModal}>
           <i class="fa-solid fa-circle-xmark"></i>
           </div>
         </div>
