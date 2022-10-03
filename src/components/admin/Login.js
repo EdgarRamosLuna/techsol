@@ -54,8 +54,8 @@ const Login = () => {
             </div>
             <div className="login-items">
                 <div className="login-item">
-                    <div className="login-label">Email</div>
-                    <input type="email" className="form-control" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                    <div className="login-label">Usuario</div>
+                    <input type="text" className="form-control" placeholder="Usuario" value={email} onChange={(e) => setEmail(e.target.value)}/>
                 </div>
                 <div className="login-item">
                     <div className="login-label">Password</div>

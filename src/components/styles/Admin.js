@@ -422,6 +422,7 @@ background: #125c78;
   justify-content: center;
   align-items: center;
   flex-direction:column;
+  box-shadow: 12px 11px 0px 1px rgb(0, 174, 239);
 }
 .login-items {
   display: flex;
