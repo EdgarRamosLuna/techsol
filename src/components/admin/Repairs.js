@@ -46,10 +46,10 @@ const Repairs = () => {
     dataR,
     setDataR} = useContext(TaskContext)
   useEffect(() => {
-    axios.post('http://localhost/ci3/repairs',).then(res =>{
+    axios.post('https://oasistienda.com/tsr/getData',).then(res =>{
      
       if (res.data) {
-      //  setDataR(res.data);
+        setDataR(res.data);
       }
      
       }).catch(err =>{

@@ -225,7 +225,24 @@ export const HeaderS = styled.div`
         width: 50px;
         }
     }
-    
+    .footer {
+        width: 100%;
+        display: flex;
+        position: absolute;
+        bottom: 10px;
+        color: #fff;
+    }
+    .footer-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        cursor: pointer;
+        i {
+            font-size: 1.3em;
+        }
+    }
 
 `;
 export const HomeS = styled.div`
@@ -239,7 +256,7 @@ export const RepairsS = styled.div`
 `;
 
 export const AddButton = styled.button`
-  background: #125c78;
+  background: #00aeef;
   color: #fff;
   padding: 15px;
   border-radius: 10px;
@@ -249,10 +266,12 @@ export const AddButton = styled.button`
   transition: all 0.3s;
   gap: 10px;
   display: flex;
+  align-items: center;
+  justify-content: center;
   &:hover {
-    background: #fff;
-    color: #125c78;
-    border: 1px solid #125c78;
+    background: transparent;
+    color: #00aeef;
+    border: 1px solid #00aeef;
     transition: all 0.3s;
   }
 `;
@@ -385,4 +404,60 @@ cursor: pointer;
         justify-content: center;
     }
 }
+`;
+export const LoginS = styled.div`
+width: 100%;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+background: #00aeef;
+background: #125c78;
+.login-container {
+  background: #d2d8df;
+  width: 40%;
+  color: #00aeef;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction:column;
+}
+.login-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 64%;
+}
+.login-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  input {
+    width: 100%;
+    box-sizing: border-box;
+    height: 50px;
+    border: 2px solid #00aeef;
+    padding: 15px;
+    outline: none;
+    background:transparent;
+    color:#125c78;
+  }
+}
+.login-logo {
+  height: 100px;
+  img {
+    height: 100%;
+  }
+}
+`;
+export const NofitfyS = styled.div`
+position: fixed;
+background: #00aeef;
+box-sizing: border-box;
+padding: 25px;
+right: 10px;
+top: 10px;
+color: #fff;
 `;

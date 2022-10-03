@@ -300,6 +300,30 @@ export const TaskContextProvider = (props) => {
   const [descripcion, setDescripcion] = useState("");
   const [price, setPrice] = useState("");
   const [dataR, setDataR] = useState(data);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [showWelMsg, setShowWelMsg] = useState(false);
+  const [nofitfyText, setNofitfyText] = useState("");
+  const [tokn, setTokn] = useState(0);
+  let tokenString = localStorage.getItem('_');
+  const isLoged = (data) =>{
+    data = parseInt(data);
+    setShowWelMsg(true);
+    localStorage.setItem('_', JSON.stringify(data));
+    setTimeout(() => {
+        setLoggedIn(true);
+        setShowWelMsg(false);
+    }, 3000);
+  }
+  useEffect(() => {
+    console.log(tokenString);
+    if(tokenString > 0){
+        setLoggedIn(true);
+    }
+    return () => {
+      
+    }
+  }, [])
+  
   return (
     <TaskContext.Provider value={{
         DataTable,
@@ -317,6 +341,13 @@ export const TaskContextProvider = (props) => {
         setPrice,
         dataR,
         setDataR,
+        isLoged,
+        setLoggedIn,
+        loggedIn,
+        showWelMsg,
+        setNofitfyText,
+        nofitfyText,
+        setTokn
         /*addCartItem,
         cartItemN,
         tokn,

@@ -4,12 +4,18 @@ import { TaskContext } from '../../context/TaskContext'
 import { HeaderS } from '../styles/Admin'
 
 const Header = () => {
-  const {setShowModal} = useContext(TaskContext)
+  const {setShowModal, setTokn, setLoggedIn} = useContext(TaskContext)
   const location = useLocation();
   const path = location.pathname;
   console.log(path);
   if(path == "/reparaciones"){
     console.log("hey  chicho libda kids alon");
+  }
+  const LogOut = () => {
+    localStorage.removeItem('_');
+    setTokn(0);
+    setLoggedIn(false);
+    
   }
   return (
     <HeaderS>
@@ -28,6 +34,12 @@ const Header = () => {
             <Link to={`/reparaciones`} state={{path: "reparaciones"}}><i class="fa-solid fa-screwdriver-wrench"></i><div className="menu-txt">Reparaciones</div></Link>
           </li>
         </ul>
+      </div>
+      <div className="footer">
+        <div className="footer-btn" onClick={LogOut}>
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <div className="footer-txt">Salir</div>
+        </div>
       </div>
         
     </HeaderS>
