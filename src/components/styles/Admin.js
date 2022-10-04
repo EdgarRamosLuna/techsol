@@ -16,6 +16,20 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+.errorTxt{
+    color: #ef0000;
+    font-size:0.8em;
+    width:100% ;
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+    padding:3px 0;
+    position:absolute;
+    bottom:-20px;
+    left:0;
+    font-weight:lighter ;
+
+}
 .header-dashboard {
     width: 100%;
     display: flex;
@@ -379,6 +393,7 @@ cursor: pointer;
   box-sizing: border-box;
   padding: 0 33px;
   margin: 10px 0;
+  position: relative;
     input {
     height: 50px;
     margin-top: 6px;
@@ -416,6 +431,20 @@ justify-content: center;
 align-items: center;
 background: #00aeef;
 background: #125c78;
+.errorTxt{
+
+    font-size:0.8em;
+    width:100% ;
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+    padding:3px 0;
+    position:absolute;
+    bottom:-40px;
+    left:0;
+    font-weight:lighter ;
+
+}
 .login-container {
   background: #d2d8df;
   width: 40%;
@@ -432,6 +461,7 @@ background: #125c78;
   flex-direction: column;
   gap: 15px;
   width: 64%;
+  position: relative;
 }
 .login-item {
   width: 100%;
@@ -476,5 +506,19 @@ display: flex;
 background: #d2d8df;
 transition: all 0.3s;
 opacity: ${props => props.op};
+
+`;
+export const ActionBtn = styled.button`
+  width: 45%;
+  height: 50px;
+  color: ${props => props.type == "edit" ? "#00aeef":"red"};
+  background:transparent;
+  border: 0;
+  margin: 4px 2.5%;
+  font-size:1.5em;
+  cursor: pointer;
+`;
+export const ActionBtnC = styled.div`
+display:flex;
 
 `;
