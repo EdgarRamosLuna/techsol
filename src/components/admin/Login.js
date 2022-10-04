@@ -57,7 +57,7 @@ const Login = () => {
     axios.post('https://oasistienda.com/tsr/login',{email:email, password:password}).then(res =>{
    
     if (!res.data.error) {
-        console.log(res.data.mensaje);
+       // console.log(res.data.mensaje);
         isLoged(res.data.id_user);
         setNofitfyText(res.data.mensaje);
         setTimeout(() => {

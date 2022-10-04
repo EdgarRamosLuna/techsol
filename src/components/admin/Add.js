@@ -83,7 +83,7 @@ const Add = (props) => {
       return false;
     }
     axios.post('https://oasistienda.com/tsr/saveData',{customer:cliente, description:descripcion,device_model:modelo, price:price, observaciones:observaciones, phone_number:telefono}).then(res =>{
-      console.log(res.data);
+   //   console.log(res.data);
       const id = res.data.id;
       const entry_date = res.data.entry_date;
       
@@ -107,7 +107,7 @@ const Add = (props) => {
   }
   const saveUserData = () =>{
     setDataR(data => ([...data, {id:uniqid(), customer:cliente, description:descripcion,device_model:modelo,status:1,price:price, entry_date:"2019"}]));
-    console.log(dataR);
+  //  console.log(dataR);
     setCliente("");
     setTelefono("");
     setModelo("");
@@ -160,7 +160,7 @@ const Add = (props) => {
   const location = useLocation();
   let path = location.pathname;
   path = path.replaceAll("/", "");
-  console.log(path);
+ // console.log(path);
   return (
     <AddS onClick={closeModal}>
       <div className="add-data-container" onClick={noClick}>

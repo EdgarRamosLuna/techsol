@@ -20,7 +20,7 @@ const Home = () => {
     let path = location.pathname;
     path = path.replaceAll("/", "");
     setActualPath(path);
-    console.log(path);
+    //console.log(path);
     
     return () => {
       
@@ -28,7 +28,7 @@ const Home = () => {
   }, [])
   const showModalC = (data) => {
 
-    console.log(data);
+   // console.log(data);
     setShowModal(prev => !prev);
   }
   return (

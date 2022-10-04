@@ -319,7 +319,7 @@ export const TaskContextProvider = (props) => {
     }, 3000);
   }
   useEffect(() => {
-    console.log(tokenString);
+    //console.log(tokenString);
     if(tokenString > 0){
         setLoggedIn(true);
     }

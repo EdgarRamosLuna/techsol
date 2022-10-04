@@ -69,7 +69,7 @@ const Repairs = () => {
       
     }
   }, [])
-  console.log(dataR);
+  //console.log(dataR);
   
   return (
     <RepairsS>

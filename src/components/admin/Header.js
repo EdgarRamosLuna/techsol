@@ -7,9 +7,9 @@ const Header = () => {
   const {setShowModal, setTokn, setLoggedIn} = useContext(TaskContext)
   const location = useLocation();
   const path = location.pathname;
-  console.log(path);
+ // console.log(path);
   if(path == "/reparaciones"){
-    console.log("hey  chicho libda kids alon");
+    //console.log("hey  chicho libda kids alon");
   }
   const LogOut = () => {
     localStorage.removeItem('_');
