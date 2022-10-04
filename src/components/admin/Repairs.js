@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useContext } from 'react'
 import { TaskContext } from '../../context/TaskContext'
-import { RepairsS } from '../styles/Admin'
+import { ActionBtn, ActionBtnC, EditBtn, RepairsS } from '../styles/Admin'
 import Table from './Table';
 const columns = [
     {
@@ -33,6 +33,10 @@ const columns = [
         name: 'Fecha de entrega',
         selector: row => row.delivery_date,
     },
+    {
+      name: '',
+      selector: row => row.actions,
+  },
 ];
 
 
@@ -49,7 +53,12 @@ const Repairs = () => {
     axios.post('https://oasistienda.com/tsr/getData',).then(res =>{
       
       if (res.data) {
-        setDataR(res.data);
+      //  setDataR(res.data);
+        for (let i = 0; i < res.data.length; i++) {
+          const element = res.data[i];
+          
+          setDataR(prev => [...prev, {id_cu:element.id_cu, customer:element.customer, phone_number:element.phone_number, device_model:element.device_model, description:element.description, observaciones:element.observaciones, price:element.price, currency:element.price, entry_date:element.entry_date, delivery_date:element.delivery_date, status:element.status, is_deleted:element.is_deleted, actions:<ActionBtnC><ActionBtn type="edit"><i class="fa-solid fa-pen-to-square"></i></ActionBtn> <ActionBtn type="del"><i class="fa-solid fa-trash"></i></ActionBtn><ActionBtn type="edit"><i class="fa-sharp fa-solid fa-circle-check"></i></ActionBtn></ActionBtnC>}]);
+        }
       }
      
       }).catch(err =>{
