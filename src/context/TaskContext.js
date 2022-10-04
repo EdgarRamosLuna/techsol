@@ -301,7 +301,7 @@ export const TaskContextProvider = (props) => {
   const [descripcion, setDescripcion] = useState("");
   const [price, setPrice] = useState("");
   const [observaciones, setObservaciones] = useState("");
-  const [dataR, setDataR] = useState(data);
+  const [dataR, setDataR] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [showWelMsg, setShowWelMsg] = useState(false);
   const [nofitfyText, setNofitfyText] = useState("");
