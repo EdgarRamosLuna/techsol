@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
     *{
    //     font-family: 'AB';
     }
+  
  /* @font-face {
   font-family: 'FontAwesome';
   src: url('../fonts/fontawesome-webfont.eot');
