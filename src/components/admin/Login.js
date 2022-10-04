@@ -10,7 +10,9 @@ const Login = () => {
     isLoged,
     setLoggedIn,
     loggedIn,
-    setNofitfyText
+    setNofitfyText,
+    loading,
+    setLoading,
   } = useContext(TaskContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -36,6 +38,13 @@ const Login = () => {
         console.log(res.data.mensaje);
         isLoged(res.data.id_user);
         setNofitfyText(res.data.mensaje);
+        setTimeout(() => {
+            
+            setLoading(true);
+            setTimeout(() => {
+                setLoading(false);
+            }, 200);
+        }, 2000);
     //    setLoggedIn(true);
       //setDataR(res.data);
     }

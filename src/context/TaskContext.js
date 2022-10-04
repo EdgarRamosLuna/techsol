@@ -5,7 +5,8 @@ import {
     Switch,
     Route,
     Link,
-    Routes
+    Routes,
+    useLocation
 } from "react-router-dom";
 import { createContext } from "react";
 import DataTable from 'react-data-table-component';
@@ -299,12 +300,15 @@ export const TaskContextProvider = (props) => {
   const [modelo, setModelo] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [price, setPrice] = useState("");
+  const [observaciones, setObservaciones] = useState("");
   const [dataR, setDataR] = useState(data);
   const [loggedIn, setLoggedIn] = useState(false);
   const [showWelMsg, setShowWelMsg] = useState(false);
   const [nofitfyText, setNofitfyText] = useState("");
   const [tokn, setTokn] = useState(0);
   let tokenString = localStorage.getItem('_');
+  const [loading, setLoading] = useState(true);
+
   const isLoged = (data) =>{
     data = parseInt(data);
     setShowWelMsg(true);
@@ -347,7 +351,12 @@ export const TaskContextProvider = (props) => {
         showWelMsg,
         setNofitfyText,
         nofitfyText,
-        setTokn
+        setTokn,
+        setLoading,
+        loading,
+        observaciones,
+        setObservaciones,
+    
         /*addCartItem,
         cartItemN,
         tokn,

@@ -160,6 +160,7 @@ export const HeaderS = styled.div`
             background: #125c78;
             i{
                 background: #125c78;
+                color: #26c3ff;
             }
             &:before{
                     content: '';
@@ -229,8 +230,10 @@ export const HeaderS = styled.div`
         width: 100%;
         display: flex;
         position: absolute;
-        bottom: 10px;
+        bottom: 0;
         color: #fff;
+        background: #125c78;
+        padding: 15px 0;
     }
     .footer-btn {
         display: flex;
@@ -461,4 +464,17 @@ padding: 25px;
 right: 10px;
 top: 10px;
 color: #fff;
+`;
+export const LoadingS = styled.div`
+width: 100%;
+height: 100%;
+position: fixed;
+z-index: 99999;
+justify-content: center;
+align-items: center;
+display: flex;
+background: #d2d8df;
+transition: all 0.3s;
+opacity: ${props => props.op};
+
 `;

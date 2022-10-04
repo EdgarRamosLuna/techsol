@@ -9,7 +9,7 @@ import Header from './Header'
 import Login from './Login';
 
 const Home = () => {
-    const {showModal, setShowModal, loggedIn, showWelMsg, nofitfyText, setTokn, setLoggedIn} = useContext(TaskContext)
+  const {showModal, setShowModal, loggedIn, showWelMsg, nofitfyText, setTokn, setLoggedIn} = useContext(TaskContext)
   const location = useLocation();
   const navegar = useNavigate();
   let state;
@@ -26,26 +26,31 @@ const Home = () => {
       
     }
   }, [])
+  const showModalC = (data) => {
 
+    console.log(data);
+    setShowModal(prev => !prev);
+  }
   return (
     <>
         
         <HomeS>
             {showWelMsg && <Notify>{nofitfyText}</Notify>}
+            
             {
                 loggedIn 
                     ? 
                 <>
                     <Header />
                     <DashboardS>
-                        {showModal && <Add/>}
+                        {showModal && <Add />}
                         <div className='header-dashboard'>
                             <div className='header-data'>
                                 Dashboard {location.pathname == "/" ? "":<div> / <span>{location.pathname.replaceAll("/", "")}</span></div>}
                             </div>
                             <div className='header-butons'>
-                                {actualPath == "clientes" ?  <AddButton><i class="fa-solid fa-plus"></i>Registar Cliente</AddButton> :""}
-                                {location.pathname == "/reparaciones" ?  <AddButton onClick={(e) => setShowModal(prev => !prev)}><i class="fa-solid fa-plus"></i>Registar Reparacion</AddButton> :""}
+                                {location.pathname == "/usuarios" || location.pathname == "/"  ?  <AddButton onClick={()=> showModalC("usu")}><i class="fa-solid fa-plus"></i>Registar Usuario</AddButton> :""}
+                                {location.pathname == "/reparaciones" || location.pathname =="/" ?  <AddButton onClick={()=> showModalC("rep")}><i class="fa-solid fa-plus"></i>Registar Reparacion</AddButton> :""}
                             </div>
                             
                         </div>

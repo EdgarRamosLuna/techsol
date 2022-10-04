@@ -33,6 +33,9 @@ const Header = () => {
           <li className={`menu-HeaderS ${path == "/reparaciones" ? "active":""}`} onClick={()=> setShowModal(false)}>
             <Link to={`/reparaciones`} state={{path: "reparaciones"}}><i class="fa-solid fa-screwdriver-wrench"></i><div className="menu-txt">Reparaciones</div></Link>
           </li>
+          <li className={`menu-HeaderS ${path == "/usuarios" ? "active":""}`} onClick={()=> setShowModal(false)}>
+            <Link to={`/usuarios`} state={{path: "usuarios"}}><i class="fa-solid fa-users"></i><div className="menu-txt">Usuarios</div></Link>
+          </li>
         </ul>
       </div>
       <div className="footer">
