@@ -23,13 +23,35 @@ const Login = () => {
       
     }
   }, [])
+  const removeErroTxt = (data) =>{
+    let id = document.getElementsByClassName("login-item");
+    let item = id;
+    let div = document.createElement("b");
+    div.append(`El campo ${data} es obligatorio`);
+    div.setAttribute("class","errorTxt");
+    if(data == "email"){
+    item[0].append(div);
+    }
+    if(data == "password"){
+    item[1].append(div);
+    }
+    setTimeout(() => {
+    let span = document.getElementsByTagName("b");
+    span[0].remove();
+    }, 2000);
+}
   const checkLogin = () => {
-    if(email.length == 0){
-        alert("Correo Obligatorio");
+   
+    if(email == ""){
+        let elements = document.getElementsByName("email");
+        elements[0].focus();
+        removeErroTxt("email");
         return false;
     }
-    if(password.length == 0){
-        alert("Password Obligatorio");
+    if(password == ""){
+        let elements = document.getElementsByName("password");
+        elements[0].focus();
+        removeErroTxt("password");
         return false;
     }
     axios.post('https://oasistienda.com/tsr/login',{email:email, password:password}).then(res =>{
@@ -53,6 +75,7 @@ const Login = () => {
         console.log(err);
     });
   }
+  
   return (
     <LoginS>
         <div className="login-container">
@@ -64,11 +87,11 @@ const Login = () => {
             <div className="login-items">
                 <div className="login-item">
                     <div className="login-label">Usuario</div>
-                    <input type="text" className="form-control" placeholder="Usuario" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                    <input type="text" className="form-control" name="email" placeholder="Usuario" value={email} onChange={(e) => setEmail(e.target.value)}/>
                 </div>
                 <div className="login-item">
                     <div className="login-label">Password</div>
-                    <input type="password" className="form-control" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <input type="password" className="form-control" name="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 <div className="login-item">
                     <AddButton onClick={checkLogin}>Login</AddButton>
