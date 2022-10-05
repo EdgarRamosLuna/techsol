@@ -315,8 +315,10 @@ export const TaskContextProvider = (props) => {
   const [loading, setLoading] = useState(true);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showCommentsModal, setShowCommentsModal] = useState(false);
   const [idComplete, setIdComplete] = useState(0);
   const [idUpdate, setIdUpdate] = useState(0);
+  const [idComment, setIdComment] = useState(0);
   const [idDelete, setIdDelete] = useState(0);
   const [showNofity, setShowNofity] = useState(false);
   const [showCompleteModal, setShowCompleteModal] = useState(false);
@@ -358,6 +360,14 @@ export const TaskContextProvider = (props) => {
       return row;
     });*/
   }
+  const showComments = (e, data) => {
+    e.preventDefault();
+    let newData = data;
+    setIdComment(parseInt(data));
+    console.log(data);
+    setShowCommentsModal(true);
+    
+  }
   const deleteData = (e, data) => {
     e.preventDefault();
     let newData = data;
@@ -376,7 +386,9 @@ export const TaskContextProvider = (props) => {
     console.log(data);
     setShowCompleteModal(true);
   }
-
+  const noClick = (e) =>{
+    e.stopPropagation();
+  }
   return (
     <TaskContext.Provider value={{
         DataTable,
@@ -428,6 +440,11 @@ export const TaskContextProvider = (props) => {
         setShowSuccesMsg,
         typeNotify, 
         setTypeNotify,
+        showComments,
+        showCommentsModal,
+        setShowCommentsModal,
+        idComment,
+        noClick
       
     }}>
         {props.children}

@@ -5,7 +5,7 @@ import { AddS, ConfirmBtn, DeclineBtn, DeleteS } from '../styles/Admin';
 
 
 const Delete = () => {
-  const {setShowDeleteModal, idDelete, setDataR, setNofitfyText, setShowSuccesMsg, setTypeNotify, typeNotify} = useContext(TaskContext)
+  const {setShowDeleteModal, idDelete, setDataR, setNofitfyText, setShowSuccesMsg, setTypeNotify, typeNotify, noClick} = useContext(TaskContext)
   const confirmDelete = (data) =>{
     axios.post("https://oasistienda.com/tsr/deleteData", {id:data}).then((res) =>{
         console.log(res);
@@ -28,7 +28,7 @@ const Delete = () => {
   return (
 
     <AddS onClick={()=>setShowDeleteModal(false)}>
-        <div className="delete-container">
+        <div className="delete-container" onClick={noClick}>
             <div className="delete-container-row">
                 <div className="delete-title">
                     Estas seguro que deseas borrar la siguienta informacion ?

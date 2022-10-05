@@ -475,6 +475,35 @@ cursor: pointer;
   gap: 15px;
   align-items: center;
 }
+.comment-title {
+  width: 80%;
+  display: flex;
+  justify-content: start;
+  margin-bottom: 30px;
+  font-size: 1.2em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.comment-data {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: start;
+  gap: 5px;
+  margin-top: -20px;
+}
+.comment-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 15px 0;
+}
+.item-desc {
+  display: flex;
+  flex-direction: column;
+}
 `;
 export const LoginS = styled.div`
 width: 100%;

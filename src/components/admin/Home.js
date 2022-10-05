@@ -5,6 +5,7 @@ import { TaskContext } from '../../context/TaskContext';
 import Notify from '../Notify';
 import { AddButton, DashboardS, HomeS, Nofitfy } from '../styles/Admin'
 import Add from './Add';
+import Comments from './Comments';
 import Complete from './Complete';
 import Delete from './Delete';
 import Header from './Header'
@@ -28,6 +29,7 @@ const Home = () => {
     showSuccesMsg,
     typeNotify,
     setTypeNotify,
+    showCommentsModal
 
   } = useContext(TaskContext)
   const location = useLocation();
@@ -67,6 +69,8 @@ const Home = () => {
                         {showUpdateModal && <Update />}
                         {showDeleteModal && <Delete />}
                         {showCompleteModal && <Complete />}
+                        {showCommentsModal && <Comments />}
+                        
                         <div className='header-dashboard'>
                             <div className='header-data'>
                                 Dashboard {location.pathname == "/" ? "":<div> / <span>{location.pathname.replaceAll("/", "")}</span></div>}

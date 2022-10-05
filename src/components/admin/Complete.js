@@ -5,11 +5,9 @@ import { ActionBtn, ActionBtnC, AddS, ConfirmBtn, DeclineBtn, DeleteS } from '..
 
 
 const Complete = () => {
-  const {setShowCompleteModal, idComplete, dataR, setDataR, setNofitfyText, setShowSuccesMsg, updateData, deleteData, isAdmin, setTypeNotify} = useContext(TaskContext)
+  const {setShowCompleteModal, idComplete, dataR, setDataR, setNofitfyText, setShowSuccesMsg, updateData, deleteData, isAdmin, setTypeNotify, noClick, showComments} = useContext(TaskContext)
   const [status, setStatus] = useState("");
-  const noClick = (e) =>{
-    e.stopPropagation();
-  }
+  
   const confirmComplete = (data) =>{
 
     //setStatus()
@@ -34,7 +32,7 @@ const Complete = () => {
                         <ActionBtn type="del"  onClick={(e) => deleteData(e, id) }><i class="fa-solid fa-trash"></i></ActionBtn>
                         
                       </>
-                    } <ActionBtn type="edit" ><i class="fa-solid fa-comments"></i></ActionBtn>
+                    } <ActionBtn type="edit" onClick={(e) => showComments(e, id) }><i class="fa-solid fa-comments"></i></ActionBtn>
                     </ActionBtnC>,};
             }
             return obj;
