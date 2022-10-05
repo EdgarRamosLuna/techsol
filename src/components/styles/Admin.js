@@ -541,12 +541,13 @@ background: #125c78;
 `;
 export const NofitfyS = styled.div`
 position: fixed;
-background: #00aeef;
+background: ${props => props.type == "" && "#00aeef"}${props => props.type == "success" && "#127822"};
 box-sizing: border-box;
 padding: 25px;
 right: 10px;
 top: 10px;
 color: #fff;
+
 `;
 export const LoadingS = styled.div`
 width: 100%;
