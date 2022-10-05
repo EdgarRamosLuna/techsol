@@ -5,7 +5,7 @@ import { ActionBtn, ActionBtnC, AddS, ConfirmBtn, DeclineBtn, DeleteS } from '..
 
 
 const Complete = () => {
-  const {setShowCompleteModal, idComplete, dataR, setDataR, setNofitfyText, setShowSuccesMsg, updateData, deleteData, isAdmin} = useContext(TaskContext)
+  const {setShowCompleteModal, idComplete, dataR, setDataR, setNofitfyText, setShowSuccesMsg, updateData, deleteData, isAdmin, setTypeNotify} = useContext(TaskContext)
   const [status, setStatus] = useState("");
   const noClick = (e) =>{
     e.stopPropagation();
@@ -42,6 +42,7 @@ const Complete = () => {
         setTimeout(() => {
             setNofitfyText("Reparacion completada con exito!");
             setShowSuccesMsg(true);
+            setTypeNotify("success")
             setTimeout(() => {
               setShowSuccesMsg(false);
             }, 3000);  

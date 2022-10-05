@@ -19,6 +19,12 @@ const Add = (props) => {
     setPrice,
     observaciones,
     setObservaciones,
+    setNofitfyText,
+    setShowSuccesMsg,
+    isAdmin,
+    updateData,
+    deleteData,
+    completeData
 
   } = useContext(TaskContext);
   const noClick = (e) =>{
@@ -87,11 +93,29 @@ const Add = (props) => {
       const id = res.data.id;
       const entry_date = res.data.entry_date;
       
-      setDataR(data => ([...data, {id:id, customer:cliente, description:descripcion,device_model:modelo,status:1,price:parseFloat(price).toFixed(2), entry_date:entry_date, delivery_date:"0000-00-00", actions:<ActionBtnC><ActionBtn type="edit"><i class="fa-solid fa-pen-to-square"></i></ActionBtn> <ActionBtn type="del"><i class="fa-solid fa-trash"></i></ActionBtn><ActionBtn type="edit"><i class="fa-sharp fa-solid fa-circle-check"></i></ActionBtn></ActionBtnC>}]));
+      setDataR(data => ([...data, {id:id, customer:cliente, description:descripcion,device_model:modelo,status:1,price:parseFloat(price).toFixed(2), entry_date:entry_date, delivery_date:"0000-00-00 00:00", 
+      actions:
+              <ActionBtnC>{
+                isAdmin && 
+                <>
+                  <ActionBtn type="edit" onClick={(e) => updateData(e, id) }><i class="fa-solid fa-pen-to-square"></i></ActionBtn>
+                  <ActionBtn type="del"  onClick={(e) => deleteData(e, id) }><i class="fa-solid fa-trash"></i></ActionBtn>
+                  
+                </>
+              } <ActionBtn type="edit" ><i class="fa-solid fa-comments"></i></ActionBtn> <ActionBtn type="edit" onClick={(e) => completeData(e, id) }><i class="fa-sharp fa-solid fa-circle-check"></i></ActionBtn> 
+              </ActionBtnC>
+      , fixed:0}]));
       if (!res.data) {
 
       }
-      window.open(`https://oasistienda.com/tsr/BackEnd/createTicket/${id}`);
+      setTimeout(() => {
+        setNofitfyText("Registro agregado con exito!");
+        setShowSuccesMsg(true);
+        setTimeout(() => {
+          setShowSuccesMsg(false);
+        }, 3000);  
+      }, 100);
+      //window.open(`https://oasistienda.com/tsr/BackEnd/createTicket/${id}`);
       }).catch(err =>{
           console.log(err);
       });
