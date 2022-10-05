@@ -20,13 +20,13 @@ const Complete = () => {
     axios.post("https://oasistienda.com/tsr/saveDataFixed", {id:data, status:parseInt(status)}).then((res) =>{
      //   console.log(res);
         const id = idComplete;
-        const entry_date = res.data.entry_date;
+        const delivery_date = res.data.delivery_date;
        
      // stock = parseInt(stock);
         const newState = dataR.map(obj => {
             
              if (parseInt(obj.id) === parseInt(id)) {
-                return {...obj, status:3, fixed:status,  };
+                return {...obj, status:3, fixed:status, delivery_date:delivery_date};
             }
             return obj;
         });

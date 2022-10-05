@@ -443,11 +443,13 @@ cursor: pointer;
   flex-wrap: wrap;
 }
 .delete-title {
-  width: 100%;
+  width: 80%;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   margin-bottom: 30px;
   font-size: 1.2em;
+  margin-left: auto;
+  margin-right: auto;
 }
 .delete-buttons {
   display: flex;
