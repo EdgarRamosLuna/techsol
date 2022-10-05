@@ -31,7 +31,7 @@ const Delete = () => {
         <div className="delete-container" onClick={noClick}>
             <div className="delete-container-row">
                 <div className="delete-title">
-                    Estas seguro que deseas borrar la siguienta informacion ?
+                    Estas seguro que deseas borrar el registro con el id numero {idDelete} ?
                 </div>
                 <div className="delete-buttons">
                     <ConfirmBtn onClick={() => confirmDelete(idDelete)}>Confirmar</ConfirmBtn>
