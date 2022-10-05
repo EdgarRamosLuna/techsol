@@ -24,7 +24,8 @@ const Add = (props) => {
     isAdmin,
     updateData,
     deleteData,
-    completeData
+    completeData,
+    setTypeNotify
 
   } = useContext(TaskContext);
   const noClick = (e) =>{
@@ -111,6 +112,7 @@ const Add = (props) => {
       setTimeout(() => {
         setNofitfyText("Registro agregado con exito!");
         setShowSuccesMsg(true);
+        setTypeNotify("success")
         setTimeout(() => {
           setShowSuccesMsg(false);
         }, 3000);  
