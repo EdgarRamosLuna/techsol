@@ -5,11 +5,28 @@ import { TaskContext } from '../../context/TaskContext';
 import Notify from '../Notify';
 import { AddButton, DashboardS, HomeS, Nofitfy } from '../styles/Admin'
 import Add from './Add';
+import Complete from './Complete';
+import Delete from './Delete';
 import Header from './Header'
 import Login from './Login';
+import Update from './Update';
 
 const Home = () => {
-  const {showModal, setShowModal, loggedIn, showWelMsg, nofitfyText, setTokn, setLoggedIn} = useContext(TaskContext)
+  const {
+    showModal, 
+    setShowModal, 
+    loggedIn, 
+    showWelMsg, 
+    nofitfyText, 
+    setTokn, 
+    setLoggedIn ,
+    showUpdateModal,
+    setshowUpdateModal,
+    showDeleteModal,
+    setshowDeleteModal,
+    showCompleteModal
+
+  } = useContext(TaskContext)
   const location = useLocation();
   const navegar = useNavigate();
   let state;
@@ -36,7 +53,7 @@ const Home = () => {
         
         <HomeS>
             {showWelMsg && <Notify>{nofitfyText}</Notify>}
-            
+            {showWelMsg && <Notify>{nofitfyText}</Notify>}
             {
                 loggedIn 
                     ? 
@@ -44,6 +61,9 @@ const Home = () => {
                     <Header />
                     <DashboardS>
                         {showModal && <Add />}
+                        {showUpdateModal && <Update />}
+                        {showDeleteModal && <Delete />}
+                        {showCompleteModal && <Complete />}
                         <div className='header-dashboard'>
                             <div className='header-data'>
                                 Dashboard {location.pathname == "/" ? "":<div> / <span>{location.pathname.replaceAll("/", "")}</span></div>}

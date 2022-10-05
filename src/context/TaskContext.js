@@ -296,6 +296,8 @@ export const TaskContextProvider = (props) => {
   const [showAlertStock, setShowAlertStock] = useState(false); */
   const [cliente, setCliente] = useState("");
   let num = 8440000000;
+  const [op, setOp] = useState(1);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [telefono, setTelefono] = useState("");
   const [modelo, setModelo] = useState("");
   const [descripcion, setDescripcion] = useState("");
@@ -307,12 +309,21 @@ export const TaskContextProvider = (props) => {
   const [nofitfyText, setNofitfyText] = useState("");
   const [tokn, setTokn] = useState(0);
   let tokenString = localStorage.getItem('_');
+  let adminU = localStorage.getItem('a');
   const [loading, setLoading] = useState(true);
-
-  const isLoged = (data) =>{
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [idComplete, setIdComplete] = useState(0);
+  const [idUpdate, setIdUpdate] = useState(0);
+  const [idDelete, setIdDelete] = useState(0);
+  const [showNofity, setShowNofity] = useState(false);
+  const [showCompleteModal, setShowCompleteModal] = useState(false);
+  const isLoged = (data, admin = 0) =>{
     data = parseInt(data);
+    //admin = parseInt(admin);
     setShowWelMsg(true);
     localStorage.setItem('_', JSON.stringify(data));
+    localStorage.setItem('a', JSON.stringify(admin));
     setTimeout(() => {
         setLoggedIn(true);
         setShowWelMsg(false);
@@ -320,14 +331,49 @@ export const TaskContextProvider = (props) => {
   }
   useEffect(() => {
     //console.log(tokenString);
+    
+    console.log(tokenString);
+    axios.post("")
+    //axios.post("", {tokenString})
     if(tokenString > 0){
         setLoggedIn(true);
+        setIsAdmin(adminU);
     }
     return () => {
       
     }
-  }, [])
-  
+  }, []);
+
+  const updateData = (e, data) => {
+    e.preventDefault();
+    let newData = data;
+    setIdUpdate(parseInt(data));
+    console.log(data);
+    setShowUpdateModal(true);
+  /*  newData = newData.map(row => {
+      row.id = row.id.toString();
+      return row;
+    });*/
+  }
+  const deleteData = (e, data) => {
+    e.preventDefault();
+    let newData = data;
+    setIdDelete(parseInt(data));
+    console.log(data);
+    setShowDeleteModal(true);
+  /*  newData = newData.map(row => {
+      row.id = row.id.toString();
+      return row;
+    });*/
+  }
+  const completeData = (e, data) => {
+    e.preventDefault();
+    let newData = data;
+    setIdComplete(parseInt(data));
+    console.log(data);
+    setShowCompleteModal(true);
+  }
+
   return (
     <TaskContext.Provider value={{
         DataTable,
@@ -356,28 +402,26 @@ export const TaskContextProvider = (props) => {
         loading,
         observaciones,
         setObservaciones,
-    
-        /*addCartItem,
-        cartItemN,
-        tokn,
-        setShowLogin,
-        showLogin,
-        getToken,
-        loading,
-        setLoading,
-        cartItemD,
-        loading,
-        showAlertStock,
-        setShowAlertStock,
-        setCartItemD,
-        setCartItemN,
-        subTotal, 
-        setSubTotal,
-        setTokn,
-        userInfo,
-        setUserInfo,
-        tokenString,
-        numberWithCommas,*/
+        showUpdateModal,
+        setShowUpdateModal,
+        updateData,
+        deleteData,
+        idUpdate,
+        op,
+        setOp,
+        isAdmin, 
+        setIsAdmin,
+        adminU,
+        showDeleteModal, 
+        setShowDeleteModal,
+        idDelete,
+        showNofity, 
+        setShowNofity,
+        showCompleteModal,
+        setShowCompleteModal,
+        idComplete,
+        completeData
+      
     }}>
         {props.children}
     </TaskContext.Provider>

@@ -14,13 +14,13 @@ import Users from './components/admin/Users';
 function App() {
   const [name, setName] = useState("")
   const [pass, setPass] = useState("")
-  const {loading, setLoading} = useContext(TaskContext);
-  const [op, setOp] = useState(1);
+  const {loading, setLoading, setOp, op} = useContext(TaskContext);
+  
   let location = useLocation();
   location = location.pathname.replaceAll("/", "");
   const [actualPage, setActualPage] = useState(location);
   useEffect(() => {
-    axios.get('http://localhost/ci3/users').then(res =>{
+   /* axios.get('http://localhost/ci3/users').then(res =>{
       //console.log(res.data);
       if (res.data) {
         
@@ -28,7 +28,7 @@ function App() {
      
       }).catch(err =>{
           console.log(err);
-      });
+      });*/
       
     setTimeout(() => {
       setOp(0);

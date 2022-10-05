@@ -13,6 +13,8 @@ const Login = () => {
     setNofitfyText,
     loading,
     setLoading,
+    isAdmin, 
+    setIsAdmin
   } = useContext(TaskContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -24,22 +26,22 @@ const Login = () => {
     }
   }, [])
   const removeErroTxt = (data) =>{
-    let id = document.getElementsByClassName("login-item");
-    let item = id;
-    let div = document.createElement("b");
-    div.append(`El campo ${data} es obligatorio`);
-    div.setAttribute("class","errorTxt");
-    if(data == "email"){
-    item[0].append(div);
-    }
-    if(data == "password"){
-    item[1].append(div);
-    }
-    setTimeout(() => {
-    let span = document.getElementsByTagName("b");
-    span[0].remove();
-    }, 2000);
-}
+      let id = document.getElementsByClassName("login-item");
+      let item = id;
+      let div = document.createElement("b");
+      div.append(`El campo ${data} es obligatorio`);
+      div.setAttribute("class","errorTxt");
+      if(data == "email"){
+      item[0].append(div);
+      }
+      if(data == "password"){
+      item[1].append(div);
+      }
+      setTimeout(() => {
+      let span = document.getElementsByTagName("b");
+      span[0].remove();
+      }, 2000);
+  }
   const checkLogin = () => {
    
     if(email == ""){
@@ -55,10 +57,17 @@ const Login = () => {
         return false;
     }
     axios.post('https://oasistienda.com/tsr/login',{email:email, password:password}).then(res =>{
-   
+    
     if (!res.data.error) {
        // console.log(res.data.mensaje);
-        isLoged(res.data.id_user);
+        if(parseInt(res.data.admin) === 1){
+          setIsAdmin(true);
+          isLoged(res.data.id_user, true);
+        }else{
+          setIsAdmin(false);
+          isLoged(res.data.id_user, false);
+        }
+        
         setNofitfyText(res.data.mensaje);
         setTimeout(() => {
             
