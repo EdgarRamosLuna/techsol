@@ -35,7 +35,7 @@ const columns = [
     },
     {
       name: 'Reparado',
-      selector: row => <>{row.fixed == 1 && "Si"}{row.fixed == 0 && "No"}</>,
+      selector: row => <>{row.fixed == 1 && "Si"}{row.fixed == 2 && "No"} {row.fixed == 0 && "No"}</>,
     },
     {
       name: '',
@@ -90,7 +90,7 @@ const Repairs = () => {
                   <ActionBtn type="del"  onClick={(e) => deleteData(e, id) }><i class="fa-solid fa-trash"></i></ActionBtn>
                   
                 </>
-              } <ActionBtn type="edit" ><i class="fa-solid fa-comments"></i></ActionBtn><ActionBtn type="edit" onClick={(e) => completeData(e, id) }><i class="fa-sharp fa-solid fa-circle-check"></i></ActionBtn>
+              } <ActionBtn type="edit" ><i class="fa-solid fa-comments"></i></ActionBtn> {element.fixed == 0 && <ActionBtn type="edit" onClick={(e) => completeData(e, id) }><i class="fa-sharp fa-solid fa-circle-check"></i></ActionBtn> }
               </ActionBtnC>,
             fixed:element.fixed  
           });

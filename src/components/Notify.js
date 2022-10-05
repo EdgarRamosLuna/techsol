@@ -3,9 +3,9 @@ import { NofitfyS } from './styles/Admin';
 
 
 const Notify = (props) => {
-  const {children} = props;
+  const {children, type} = props;
   return (
-    <NofitfyS>
+    <NofitfyS type={type}>
         {children}
     </NofitfyS>
   )

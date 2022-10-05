@@ -24,7 +24,10 @@ const Home = () => {
     setshowUpdateModal,
     showDeleteModal,
     setshowDeleteModal,
-    showCompleteModal
+    showCompleteModal,
+    showSuccesMsg,
+    typeNotify,
+    setTypeNotify,
 
   } = useContext(TaskContext)
   const location = useLocation();
@@ -53,7 +56,7 @@ const Home = () => {
         
         <HomeS>
             {showWelMsg && <Notify>{nofitfyText}</Notify>}
-            {showWelMsg && <Notify>{nofitfyText}</Notify>}
+            {showSuccesMsg && <Notify type={typeNotify}>{nofitfyText}</Notify>}
             {
                 loggedIn 
                     ? 

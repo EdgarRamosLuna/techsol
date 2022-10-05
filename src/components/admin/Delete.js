@@ -5,11 +5,22 @@ import { AddS, ConfirmBtn, DeclineBtn, DeleteS } from '../styles/Admin';
 
 
 const Delete = () => {
-  const {setShowDeleteModal, idDelete} = useContext(TaskContext)
+  const {setShowDeleteModal, idDelete, setDataR, setNofitfyText, setShowSuccesMsg, setTypeNotify, typeNotify} = useContext(TaskContext)
   const confirmDelete = (data) =>{
     axios.post("https://oasistienda.com/tsr/deleteData", {id:data}).then((res) =>{
         console.log(res);
         setShowDeleteModal(false);
+        setDataR(prev=>{
+            return prev.filter(datar=>datar.id!=data);
+        });
+        setTimeout(() => {
+            setNofitfyText("Datos eliminados con exito!");
+            setTypeNotify("success")
+            setShowSuccesMsg(true);
+            setTimeout(() => {
+              setShowSuccesMsg(false);
+            }, 3000);  
+        }, 100);
     }).catch((err) => {
         
     });

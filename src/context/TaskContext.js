@@ -306,6 +306,8 @@ export const TaskContextProvider = (props) => {
   const [dataR, setDataR] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [showWelMsg, setShowWelMsg] = useState(false);
+  const [showSuccesMsg, setShowSuccesMsg] = useState(false);
+  
   const [nofitfyText, setNofitfyText] = useState("");
   const [tokn, setTokn] = useState(0);
   let tokenString = localStorage.getItem('_');
@@ -318,6 +320,7 @@ export const TaskContextProvider = (props) => {
   const [idDelete, setIdDelete] = useState(0);
   const [showNofity, setShowNofity] = useState(false);
   const [showCompleteModal, setShowCompleteModal] = useState(false);
+  const [typeNotify, setTypeNotify] = useState("");
   const isLoged = (data, admin = 0) =>{
     data = parseInt(data);
     //admin = parseInt(admin);
@@ -420,7 +423,11 @@ export const TaskContextProvider = (props) => {
         showCompleteModal,
         setShowCompleteModal,
         idComplete,
-        completeData
+        completeData,
+        showSuccesMsg, 
+        setShowSuccesMsg,
+        typeNotify, 
+        setTypeNotify,
       
     }}>
         {props.children}

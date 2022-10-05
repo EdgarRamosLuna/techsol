@@ -23,7 +23,10 @@ const Update = (props) => {
     setShowUpdateModal,
     idUpdate,
     setLoading,
-    setOp
+    setOp,
+    showSuccesMsg, 
+    setShowSuccesMsg,
+    setNofitfyText
 
   } = useContext(TaskContext);
   const noClick = (e) =>{
@@ -107,11 +110,17 @@ const Update = (props) => {
       
       if (res.data) {
         setDataR(newState);
+        
         setTimeout(() => {
             //setLoading(false);
           //  setOp(0);
           setShowUpdateModal(false);
           setDataLoading(false);
+          setNofitfyText("Datos actualizados con exito!");
+          setShowSuccesMsg(true);
+          setTimeout(() => {
+            setShowSuccesMsg(false);
+          }, 2000);
         }, 1100);
         
       }

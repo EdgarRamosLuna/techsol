@@ -1,11 +1,11 @@
 import axios from 'axios';
 import React, { useState, useEffect, useContext } from 'react';
 import { TaskContext } from '../../context/TaskContext';
-import { AddS, ConfirmBtn, DeclineBtn, DeleteS } from '../styles/Admin';
+import { ActionBtn, ActionBtnC, AddS, ConfirmBtn, DeclineBtn, DeleteS } from '../styles/Admin';
 
 
 const Complete = () => {
-  const {setShowCompleteModal, idComplete, dataR, setDataR} = useContext(TaskContext)
+  const {setShowCompleteModal, idComplete, dataR, setDataR, setNofitfyText, setShowSuccesMsg, updateData, deleteData, isAdmin} = useContext(TaskContext)
   const [status, setStatus] = useState("");
   const noClick = (e) =>{
     e.stopPropagation();
@@ -26,10 +26,27 @@ const Complete = () => {
         const newState = dataR.map(obj => {
             
              if (parseInt(obj.id) === parseInt(id)) {
-                return {...obj, status:3, fixed:status, delivery_date:delivery_date};
+                return {...obj, status:3, fixed:status, delivery_date:delivery_date, actions:
+                    <ActionBtnC>{
+                      isAdmin && 
+                      <>
+                        <ActionBtn type="edit" onClick={(e) => updateData(e, id) }><i class="fa-solid fa-pen-to-square"></i></ActionBtn>
+                        <ActionBtn type="del"  onClick={(e) => deleteData(e, id) }><i class="fa-solid fa-trash"></i></ActionBtn>
+                        
+                      </>
+                    } <ActionBtn type="edit" ><i class="fa-solid fa-comments"></i></ActionBtn>
+                    </ActionBtnC>,};
             }
             return obj;
         });
+        setTimeout(() => {
+            setNofitfyText("Reparacion completada con exito!");
+            setShowSuccesMsg(true);
+            setTimeout(() => {
+              setShowSuccesMsg(false);
+            }, 3000);  
+        }, 100);
+          
         console.log(newState)
         setDataR(newState);
         setShowCompleteModal(false);
