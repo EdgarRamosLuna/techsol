@@ -53,7 +53,7 @@ const Comments = () => {
                                         </div>
                                         <div className="comment-item">
                                             
-                                            <div className="item-desc"><div><i className="fa-solid fa-comment"></i> Obvervaciones:</div><span> {comment.observaciones}</span></div>
+                                            <div className="item-desc"><div><i className="fa-solid fa-eye"></i> Obvervaciones:</div><span> {comment.observaciones}</span></div>
                                        
                                         </div>
                                     

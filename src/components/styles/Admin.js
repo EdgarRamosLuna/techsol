@@ -478,7 +478,7 @@ cursor: pointer;
 .comment-title {
   width: 80%;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   margin-bottom: 30px;
   font-size: 1.2em;
   margin-left: auto;

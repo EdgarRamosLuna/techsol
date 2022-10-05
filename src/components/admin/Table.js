@@ -42,7 +42,7 @@ const Table = (props) => {
     <TableS>
          <DataTable
 			columns={columns}
-			data={filteredItems}
+			data={filteredItems.reverse()}
 			pagination
 			paginationResetDefaultPage={resetPaginationToggle} // optionally, a hook to reset pagination to page 1
 			subHeader
