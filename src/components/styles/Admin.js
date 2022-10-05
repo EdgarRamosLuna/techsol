@@ -65,6 +65,13 @@ align-items: center;
   div:first-child {
     width: 100%;
   }
+  text-align:left ;
+}
+.loading-container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
 }
 `;
 
@@ -422,6 +429,50 @@ cursor: pointer;
         justify-content: center;
     }
 }
+.delete-container {
+  width: 50%;
+  background: #00aeef;
+  padding: 25px;
+  color: #fff;
+  box-sizing: border-box;
+  border-bottom: 5px solid #fff;
+  cursor: default;
+}
+.delete-container-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.delete-title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  font-size: 1.2em;
+}
+.delete-buttons {
+  display: flex;
+  justify-content: end;
+  width: 80%;
+  gap: 15px;
+  margin: 0 auto;
+}
+.delete-select {
+  width: 100px;
+  height: 40px;
+  background: #00aeef;
+  color: #fff;
+  border: 1px solid #fff;
+}
+.delete-input {
+  width: 80%;
+  margin: 0 auto;
+    margin-bottom: 0px;
+  justify-content: end;
+  display: flex;
+  margin-bottom: 15px;
+  gap: 15px;
+  align-items: center;
+}
 `;
 export const LoginS = styled.div`
 width: 100%;
@@ -509,16 +560,52 @@ opacity: ${props => props.op};
 
 `;
 export const ActionBtn = styled.button`
-  width: 45%;
+  width: 25%;
   height: 50px;
   color: ${props => props.type == "edit" ? "#00aeef":"red"};
   background:transparent;
   border: 0;
-  margin: 4px 2.5%;
+  margin: 4px auto;
   font-size:1.5em;
   cursor: pointer;
 `;
 export const ActionBtnC = styled.div`
 display:flex;
+flex-wrap:wrap ;
+`;
 
+export const DeleteS = styled.div`
+
+`;
+export const ConfirmBtn = styled.button`
+width: 100px;
+height: 35px;
+border: 0;
+color: #fff;
+background: #125c78;
+cursor: pointer;
+border: 1px solid #125c78;
+transition: all 0.3s;
+&:hover{
+  transition: all 0.3s;
+  color: #fff;
+  border: 1px solid #125c78;
+  background: transparent;
+}
+`;
+export const DeclineBtn = styled.button`
+width: 100px;
+height: 35px;
+border: 0;
+color: #fff;
+background: #ef0000;
+cursor: pointer;
+border: 1px solid #ef0000;
+transition: all 0.3s;
+&:hover{
+  transition: all 0.3s;
+  color: #fff;
+  border: 1px solid #ef0000;
+  background: transparent;
+}
 `;
