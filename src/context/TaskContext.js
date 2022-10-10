@@ -320,8 +320,10 @@ export const TaskContextProvider = (props) => {
   const [idUpdate, setIdUpdate] = useState(0);
   const [idComment, setIdComment] = useState(0);
   const [idDelete, setIdDelete] = useState(0);
+  const [idUi, setIdUi] = useState(0);
   const [showNofity, setShowNofity] = useState(false);
   const [showCompleteModal, setShowCompleteModal] = useState(false);
+  const [showUIModal, setShowUIModal] = useState(false);
   const [typeNotify, setTypeNotify] = useState("");
   const isLoged = (data, admin = 0) =>{
     data = parseInt(data);
@@ -386,9 +388,18 @@ export const TaskContextProvider = (props) => {
     console.log(data);
     setShowCompleteModal(true);
   }
+  const showUsePNumber = (e, data) =>{
+
+    e.preventDefault();
+    let newData = data;
+    setIdUi(parseInt(data));
+    console.log(data);
+    setShowUIModal(true);
+  }
   const noClick = (e) =>{
     e.stopPropagation();
   }
+
   return (
     <TaskContext.Provider value={{
         DataTable,
@@ -444,7 +455,12 @@ export const TaskContextProvider = (props) => {
         showCommentsModal,
         setShowCommentsModal,
         idComment,
-        noClick
+        noClick,
+        showUIModal, 
+        setShowUIModal,
+        idUi, 
+        setIdUi,
+        showUsePNumber
       
     }}>
         {props.children}

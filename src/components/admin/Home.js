@@ -11,6 +11,7 @@ import Delete from './Delete';
 import Header from './Header'
 import Login from './Login';
 import Update from './Update';
+import UserInfo from './UserInfo';
 
 const Home = () => {
   const {
@@ -29,7 +30,9 @@ const Home = () => {
     showSuccesMsg,
     typeNotify,
     setTypeNotify,
-    showCommentsModal
+    showCommentsModal,
+    showUIModal, 
+    setShowUIModal
 
   } = useContext(TaskContext)
   const location = useLocation();
@@ -70,6 +73,7 @@ const Home = () => {
                         {showDeleteModal && <Delete />}
                         {showCompleteModal && <Complete />}
                         {showCommentsModal && <Comments />}
+                        {showUIModal && <UserInfo />}
                         
                         <div className='header-dashboard'>
                             <div className='header-data'>

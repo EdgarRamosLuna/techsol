@@ -9,7 +9,7 @@ export const AdminS = styled.div`
 export const DashboardS = styled.div`
 width: calc(100% - 66px);
 margin-left: auto;
-height: 100vh;
+height: 100%;
 box-sizing: border-box;
 overflow-y: auto;
 display: flex;
@@ -232,7 +232,7 @@ export const HeaderS = styled.div`
     }
     .logo{
         width: 100%;
-        height: 90px;
+        height: 100px;
         display: flex;
         justify-content: center;
         background: #d2d8df;
@@ -343,6 +343,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 background: #0000004d;
+top:0 ;
 cursor: pointer;
 
 
@@ -497,8 +498,14 @@ cursor: pointer;
 .comment-item {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 8px ;
   margin: 15px 0;
+}
+.comment-items {
+  hr{
+    height: 0;
+    border: 1px solid #fff;
+  }
 }
 .item-desc {
   display: flex;
@@ -537,6 +544,12 @@ background: #125c78;
   align-items: center;
   flex-direction:column;
   box-shadow: 12px 11px 0px 1px rgb(0, 174, 239);
+  min-height: 453px;
+  position: relative;
+}
+.login-header {
+  position: absolute;
+  top: 15px;
 }
 .login-items {
   display: flex;
@@ -639,5 +652,25 @@ transition: all 0.3s;
   color: #fff;
   border: 1px solid #ef0000;
   background: transparent;
+}
+`;
+export const NameField = styled.div`
+height: 46px;
+display: flex;
+align-items: center;
+background: #fff;
+color: #00aeef;
+padding-left: 5px;
+text-transform: capitalize;
+border: 1px solid rgb(224, 224, 224);
+width: 92% !important;
+cursor: pointer;
+transition: all 0.3s;
+border-radius: 5px;
+text-align: center;
+&:hover{
+  background: #00aeef;
+  color: #fff;
+  transition: all 0.3s;
 }
 `;

@@ -2,12 +2,12 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useContext } from 'react'
 import { TaskContext } from '../../context/TaskContext'
-import { ActionBtn, ActionBtnC, EditBtn, RepairsS } from '../styles/Admin'
+import { ActionBtn, ActionBtnC, EditBtn, NameField, RepairsS } from '../styles/Admin'
 import Table from './Table';
 const columns = [
     {
         name: 'Cliente',
-        selector: row => row.customer,
+        selector: row => row.customerp,
     },
     {
         name: 'Modelo',
@@ -58,7 +58,10 @@ const Repairs = () => {
     isAdmin, 
     setIsAdmin,
     completeData,
-    showComments
+    showComments,
+    showUIModal, 
+    setShowUIModal,
+    showUsePNumber
   } = useContext(TaskContext);
   
   
@@ -73,6 +76,14 @@ const Repairs = () => {
           arrayData.push({
             id:element.id,
             id_cu:element.id_cu, 
+            customerp:
+            <NameField onClick={(e) => showUsePNumber(e, element.id)}>
+              <div>
+                {element.customer}
+                
+              </div>
+            
+            </NameField>,
             customer:element.customer, 
             phone_number:element.phone_number, 
             device_model:element.device_model, 
